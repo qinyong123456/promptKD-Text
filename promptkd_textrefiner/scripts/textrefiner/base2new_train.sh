@@ -22,7 +22,7 @@ CUDA_VISIBLE_DEVICES=0 python train.py \
     --seed ${SEED} \
     --trainer ${TRAINER} \
     --dataset-config-file configs/datasets/${DATASET}.yaml \
-    --config-file promptkd_textrefiner/configs/trainers/promptkd/${CFG}.yaml \
+    --config-file /kaggle/working/promptKD-Text/promptkd_textrefiner/configs/trainers/promptkd/vit_b16_c2_ep20_batch8_4+4ctx.yaml \
     --output-dir ${DIR} \
     DATASET.NUM_SHOTS ${SHOTS} \
     TRAINER.MODAL base2novel \
