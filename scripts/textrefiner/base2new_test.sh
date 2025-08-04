@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # custom config
-DATA=/path/to/dataset
+DATA='/kaggle/working/promptKD-Text/data'
 TRAINER=TextRefiner
 
 DATASET=$1
