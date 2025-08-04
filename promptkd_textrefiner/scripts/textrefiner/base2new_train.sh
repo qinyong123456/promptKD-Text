@@ -22,7 +22,6 @@ CUDA_VISIBLE_DEVICES=0 python train.py \
     --seed ${SEED} \
     --trainer ${TRAINER} \
     --dataset-config-file configs/datasets/${DATASET}.yaml \
-    #--config-file configs/trainers/${TRAINER}/${CFG}.yaml \
     --config-file promptkd_textrefiner/configs/trainers/promptkd/${CFG}.yaml \
     --output-dir ${DIR} \
     DATASET.NUM_SHOTS ${SHOTS} \
