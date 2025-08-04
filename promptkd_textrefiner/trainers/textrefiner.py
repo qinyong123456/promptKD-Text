@@ -45,7 +45,8 @@ def load_clip_to_cpu_teacher(cfg, zero_shot_model=False):
     elif backbone_name == "ViT-B/32":
         model_path = './clip/ViT-B-32.pt'
     else:
-        print('enter the wrong teacher name.')
+        # 增加默认路径或报错提示，避免model_path未定义
+        raise ValueError(f"Unsupported teacher backbone: {backbone_name}")  # 推荐报错，明确指出问题
     
     print(f"CLIP Teacher name is {backbone_name}")
     
