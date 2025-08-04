@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # custom config
-DATA=/path/to/data
+DATA='/kaggle/working/promptKD-Text/data'
 TRAINER=TextRefiner
 
 # stanford_cars
