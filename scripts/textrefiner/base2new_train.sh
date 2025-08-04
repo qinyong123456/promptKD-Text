@@ -18,7 +18,7 @@ DIR=output/base2new/train_base/${DATASET}/${TRAINER}/${CFG}_${SHOTS}shots/nctx${
 if [ -d "$DIR" ]; then
     echo "Oops! The results exist at ${DIR} (so skip this job)"
 else
-    CUDA_VISIBLE_DEVICES=3 python train.py \
+    CUDA_VISIBLE_DEVICES=0 python train.py \
     --root ${DATA} \
     --seed ${SEED} \
     --trainer ${TRAINER} \
