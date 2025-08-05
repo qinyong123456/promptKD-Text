@@ -167,12 +167,20 @@ class VLPromptLearner(nn.Module):
         self.tokenized_prompts = tokenized_prompts  # torch.Tensor
         # self.name_lens = name_lens
 
-        if self.train_modal == "base2novel":
-            self.register_buffer("token_prefix", embedding[:math.ceil(self.n_cls / 2), :1, :])  # SOS
-            self.register_buffer("token_suffix", embedding[:math.ceil(self.n_cls / 2), 1 + n_ctx:, :])  # CLS, EOS
+        # if self.train_modal == "base2novel":
+        #     self.register_buffer("token_prefix", embedding[:math.ceil(self.n_cls / 2), :1, :])  # SOS
+        #     self.register_buffer("token_suffix", embedding[:math.ceil(self.n_cls / 2), 1 + n_ctx:, :])  # CLS, EOS
 
-            self.register_buffer("token_prefix2", embedding[math.ceil(self.n_cls / 2):, :1, :])  # SOS
-            self.register_buffer("token_suffix2", embedding[math.ceil(self.n_cls / 2):, 1 + n_ctx:, :])  # CLS, EOS
+        #     self.register_buffer("token_prefix2", embedding[math.ceil(self.n_cls / 2):, :1, :])  # SOS
+        #     self.register_buffer("token_suffix2", embedding[math.ceil(self.n_cls / 2):, 1 + n_ctx:, :])  # CLS, EOS
+        if self.train_modal == "base2novel":
+            # 使用整数除法确保两部分大小之和等于self.n_cls
+            split_point = self.n_cls // 2
+            self.register_buffer("token_prefix", embedding[:split_point, :1, :])  # SOS
+            self.register_buffer("token_suffix", embedding[:split_point, 1 + n_ctx:, :])  # CLS, EOS
+
+            self.register_buffer("token_prefix2", embedding[split_point:, :1, :])  # SOS
+            self.register_buffer("token_suffix2", embedding[split_point:, 1 + n_ctx:, :])  # CLS, EOS    
             
         elif self.train_modal == "cross":
             self.register_buffer("token_prefix", embedding[:, :1, :])  # SOS
