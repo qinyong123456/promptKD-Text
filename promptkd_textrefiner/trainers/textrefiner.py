@@ -219,7 +219,7 @@ class VLPromptLearner(nn.Module):
         prefix = self.token_prefix
         suffix = self.token_suffix
 
-        if self.trainer_name == "PromptKD" and self.train_modal == "base2novel":
+        if self.train_modal == "base2novel":
             # print(f'n_cls is {self.n_cls}')
             prefix = torch.cat([prefix, self.token_prefix2], dim=0)
             suffix = torch.cat([suffix, self.token_suffix2], dim=0)
