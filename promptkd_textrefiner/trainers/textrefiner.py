@@ -16,6 +16,11 @@ from tqdm import tqdm
 import math
 from dassl.utils import save_checkpoint
 from clip.model import VisionTransformer, convert_weights
+import torch.optim.lr_scheduler
+from torch.serialization import add_safe_globals
+
+# 添加允许的全局类
+add_safe_globals([torch.optim.lr_scheduler.CosineAnnealingLR])
 
 _tokenizer = _Tokenizer()
 
