@@ -10,7 +10,7 @@ fi
 
 # custom config
 DATA='/kaggle/working/promptKD-Text/data'
-TRAINER=PromptKD
+TRAINER=TextRefiner
 
 # 从命令行参数获取数据集名称
 DATASET=$1
