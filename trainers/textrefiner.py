@@ -12,7 +12,7 @@ from dassl.optim import build_optimizer, build_lr_scheduler
 
 from clip import clip
 from clip.simple_tokenizer import SimpleTokenizer as _Tokenizer
-from clip.model import convert_weights
+from clip.model import VisionTransformer,convert_weights
 from tqdm import tqdm
 from dassl.utils import save_checkpoint
 
